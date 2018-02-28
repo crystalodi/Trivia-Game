@@ -36,10 +36,30 @@ $(document).ready(function() {
 			correctAnswer: "c"
 		}
 	];
-	buildQuiz()
 	function buildQuiz() {
+		//empty quiz container;
+		$("#quiz-body").empty();
+		//create form that will hold questions
+		var quizForm = $("<form>");
+		quizForm.attr("id", "quiz-form")
+		$("#quiz-body").append(quizForm);
 		for(var i = 0; i < quiz.length; i++) {
-			
+			//Create a new container to hold quiz question and radio buttons
+			var question = $("<div>");
+			question.attr("class", "question");
+			question.text(quiz[i]["question"]);
+			quizForm.append(question);
+			//Loop through all of the answer choices and create a label with answer choice and a radio button
+			var answers = $("<div>")
+			answers.attr("class", "answer");
+			quizForm.append(answers);
+			for(letter in quiz[i]["answers"]) {
+				var label = $("<label>");
+				label.attr("class", "answer");
+				var inputGroupName = "question" + i;
+				label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '">' + quiz[i]["answers"][letter] + '</input>')
+				answers.append(label);
+			}
 		}
 	}
 	function buildResultsPage() {
@@ -51,6 +71,7 @@ $(document).ready(function() {
 		//show quiz questions by toggling active and inactive classes on div that holds quiz.
 		$("#quiz-body").removeClass("inactive");
 		$("#quiz-body").addClass("active");
+		buildQuiz()
 	});
 	$("#seeResults").on("click", function() {
 		console.log("building results page!");
@@ -59,8 +80,10 @@ $(document).ready(function() {
 		$("#quiz-body").addClass("inactive");
 		$("#start-body").removeClass("active");
 		$("#start-body").addClass("inactive");
+		document.getElementById("startQuiz").style.display = "none"
 		$("#results").removeClass("inactive");
 		$("#results").addClass("active");
+		
 		//show results page.
 	});
 });

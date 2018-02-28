@@ -8,8 +8,7 @@ body {
 }
 .container {
 	width:90%;
-	height:500px;
-	border: 2px solid black;
+	height:400px;
 	margin:0 auto;
 }
 .start,
@@ -19,13 +18,20 @@ body {
 	width:100%;
 	margin:0 auto;
 }
+#startQuiz {
+	display:inherit;
+}
 .start {
 	text-align:center;
-	height:500px;
 }
 .inactive {
 	display:none;
 }
 .active {
 	display:inline-block;
+}
+.question,
+.answer {
+	float:left;
+	width:100%;
 }
