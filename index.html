@@ -9,11 +9,13 @@
 		</head>
 		<body>
 			<div class="container">
-				<div class="start active" id="start-body">
-					<input type="submit" value="Start Quiz" id="startQuiz"></input>
+				<div class="start" id="start-body">
+					<button type="button" id="startQuiz">Start Quiz</button>
 				</div>
 				<div class="quiz inactive" id="quiz-body">
-					<input type="submit" value="See Results" id="seeResults"></input>
+					<form id="quiz-form">
+						<input type="submit" value="See Results" id="seeResults"></input>
+					</form>
 				</div>
 				<div class="results inactive" id="quiz-results"></div>
 			</div>

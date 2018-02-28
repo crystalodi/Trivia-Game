@@ -8,7 +8,7 @@ body {
 }
 .container {
 	width:90%;
-	height:100px;
+	height:500px;
 	border: 2px solid black;
 	margin:0 auto;
 }
@@ -19,9 +19,13 @@ body {
 	width:100%;
 	margin:0 auto;
 }
+.start {
+	text-align:center;
+	height:500px;
+}
 .inactive {
 	display:none;
 }
 .active {
-	display:inline;
+	display:inline-block;
 }

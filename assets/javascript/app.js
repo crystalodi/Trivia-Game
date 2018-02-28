@@ -21,7 +21,7 @@ $(document).ready(function() {
 				a: "Air Conditioners",
 				b: "Designer Handbags",
 				c: "Plumbing Supplies",
-				d: "Propane"
+				d: "Propane and Propane accessories"
 			},
 			correctAnswer: "d"
 		},
@@ -38,25 +38,29 @@ $(document).ready(function() {
 	];
 	buildQuiz()
 	function buildQuiz() {
-		console.log(document.getElementById("quiz-body"));
-		
+		for(var i = 0; i < quiz.length; i++) {
+			
+		}
 	}
 	function buildResultsPage() {
 
 	}
 	$("#startQuiz").on("click", function() {
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
-		$("#start-body").toggleClass("active");
-		$("#start-body").toggleClass("inactive");
+		$("#start-body").addClass("inactive");
 		//show quiz questions by toggling active and inactive classes on div that holds quiz.
-		$("#quiz-body").toggleClass("inactive");
-		$("#quiz-body").toggleClass("active");
+		$("#quiz-body").removeClass("inactive");
+		$("#quiz-body").addClass("active");
 	});
 	$("#seeResults").on("click", function() {
 		console.log("building results page!");
 		//Hide quiz questions by toggling active and inactive css classes.
-		$("#quiz-body").toggleClass("active");
-		$("#quiz-body").toggleClass("inactive");
+		$("#quiz-body").removeClass("active");
+		$("#quiz-body").addClass("inactive");
+		$("#start-body").removeClass("active");
+		$("#start-body").addClass("inactive");
+		$("#results").removeClass("inactive");
+		$("#results").addClass("active");
 		//show results page.
 	});
 });
