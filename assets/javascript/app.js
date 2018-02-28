@@ -34,6 +34,36 @@ $(document).ready(function() {
 				d: "Unlucky Strikes"
 			},
 			correctAnswer: "c"
+		},
+		{
+			question: "What language does Peggy speak very poorly?",
+			answers: {
+				a: "French",
+				b: "Porteguese",
+				c: "Italian",
+				d: "Spanish"
+			},
+			correctAnswer: "d"
+		},
+		{
+			question: "Who is Joseph Gribble's dad?",
+			answers: {
+				a: "John Redcorn",
+				b: "Bull",
+				c: "Hank",
+				d: "Dale"
+			},
+			correctAnswer: "a"
+		},
+		{
+			question: "In the episode Pretty Pretty Dresses, which character has a mental breakdowm?",
+			answers: {
+				a: "Joe Jack",
+				b: "Hank",
+				c: "Bill",
+				d: "Dale"
+			},
+			correctAnswer: "c"
 		}
 	];
 	function buildQuiz() {
@@ -45,14 +75,17 @@ $(document).ready(function() {
 		$("#quiz-body").append(quizForm);
 		for(var i = 0; i < quiz.length; i++) {
 			//Create a new container to hold quiz question and radio buttons
+			var questionContainer = $("<div>");
+			quizForm.append(questionContainer);
 			var question = $("<div>");
 			question.attr("class", "question");
 			question.text(quiz[i]["question"]);
-			quizForm.append(question);
+			//Add it to quiz form.
+			questionContainer.append(question);
 			//Loop through all of the answer choices and create a label with answer choice and a radio button
 			var answers = $("<div>")
 			answers.attr("class", "answer");
-			quizForm.append(answers);
+			questionContainer.append(answers);
 			for(letter in quiz[i]["answers"]) {
 				var label = $("<label>");
 				label.attr("class", "answer");
@@ -61,6 +94,7 @@ $(document).ready(function() {
 				answers.append(label);
 			}
 		}
+		//Add a submit button;
 	}
 	function buildResultsPage() {
 
@@ -80,7 +114,6 @@ $(document).ready(function() {
 		$("#quiz-body").addClass("inactive");
 		$("#start-body").removeClass("active");
 		$("#start-body").addClass("inactive");
-		document.getElementById("startQuiz").style.display = "none"
 		$("#results").removeClass("inactive");
 		$("#results").addClass("active");
 		
