@@ -74,6 +74,26 @@ $(document).ready(function() {
 				d: "Ankle"
 			},
 			correctAnswer: "b"
+		},
+		{
+			question: "What is Dale Gribble's Alias?",
+			answers: {
+				a: "Rusty Shackleford",
+				b: "Max Powers",
+				c: "Hansen B. Wonderful",
+				d: "Stan Lee"
+			},
+			correctAnswer: "a"
+		},
+		{
+			question: "What is the name of the grocery superstore that everybody in town shops at?",
+			answers: {
+				a: "Megalomart",
+				b: "Aldo's",
+				c: "Get In Get Out",
+				d: "Target"
+			},
+			correctAnswer: "a"
 		}
 	];
 	function buildQuiz() {
