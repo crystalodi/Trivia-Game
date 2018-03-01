@@ -18,6 +18,11 @@ body {
 	width:100%;
 	margin:0 auto;
 }
+.quiz,
+.results {
+	height:100%;
+	overflow-y:auto;
+}
 #startQuiz {
 	display:inherit;
 }
@@ -29,6 +34,12 @@ body {
 }
 .active {
 	display:inline-block;
+}
+.question-container {
+	float:left;
+	width:100%;
+	margin-bottom: 1%;
+	border:2px solid red;
 }
 .question,
 .answer {

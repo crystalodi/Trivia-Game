@@ -49,14 +49,14 @@ $(document).ready(function() {
 			question: "Who is Joseph Gribble's dad?",
 			answers: {
 				a: "John Redcorn",
-				b: "Bull",
+				b: "Bill",
 				c: "Hank",
 				d: "Dale"
 			},
 			correctAnswer: "a"
 		},
 		{
-			question: "In the episode Pretty Pretty Dresses, which character has a mental breakdowm?",
+			question: "In the episode Pretty Pretty Dresses, which character has a mental breakdown?",
 			answers: {
 				a: "Joe Jack",
 				b: "Hank",
@@ -64,19 +64,31 @@ $(document).ready(function() {
 				d: "Dale"
 			},
 			correctAnswer: "c"
+		},
+		{
+			question: "What body part does Hank threaten to kick when he is angry?",
+			answers: {
+				a: "Stomach",
+				b: "Ass",
+				c: "Head",
+				d: "Ankle"
+			},
+			correctAnswer: "b"
 		}
 	];
 	function buildQuiz() {
-		//empty quiz container;
-		$("#quiz-body").empty();
-		//create form that will hold questions
-		var quizForm = $("<form>");
-		quizForm.attr("id", "quiz-form")
-		$("#quiz-body").append(quizForm);
-		for(var i = 0; i < quiz.length; i++) {
+		//Hide start screen by toggling active and inactive classes on div that holds start page.
+		$("#start-body").addClass("inactive");
+		//show quiz questions by toggling active and inactive classes on div that holds quiz.
+		$("#quiz-body").removeClass("inactive");
+		$("#quiz-body").addClass("active");
+		var quizForm = $("#quiz-form");
+		for(var i = quiz.length-1; i >= 0; i--) {
 			//Create a new container to hold quiz question and radio buttons
 			var questionContainer = $("<div>");
-			quizForm.append(questionContainer);
+			questionContainer.attr("class", "question-container")
+			quizForm.prepend(questionContainer);
+			//Create a div to hold question.
 			var question = $("<div>");
 			question.attr("class", "question");
 			question.text(quiz[i]["question"]);
@@ -84,45 +96,68 @@ $(document).ready(function() {
 			questionContainer.append(question);
 			//Loop through all of the answer choices and create a label with answer choice and a radio button
 			var answers = $("<div>")
-			answers.attr("class", "answer");
 			questionContainer.append(answers);
 			for(letter in quiz[i]["answers"]) {
 				var label = $("<label>");
 				label.attr("class", "answer");
 				var inputGroupName = "question" + i;
-				label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '">' + quiz[i]["answers"][letter] + '</input>')
+				label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '" data-index="' + i + '">' + quiz[i]["answers"][letter] + '</input>')
 				answers.append(label);
 			}
 		}
-		//Add a submit button;
-		var inputButton = $("<input>");
-		inputButton.attr("id", "seeResults");
-		inputButton.attr("type", "button");
-		inputButton.attr("value", "See Results");
-		$("#quiz-body").append(inputButton);
-		$("#seeResults").on("click", seeResultsPage);
-	
 	}
 	function buildResultsPage() {
-
+		var resultsPage = $("#quiz-results");
+		for(var i = 0; i < quiz.length; i++) {
+			var questionContainer = $("<div>");
+			questionContainer.attr("class", "question-container")
+			resultsPage.append(questionContainer)
+			//Create a div to hold question.
+			var question = $("<div>");
+			question.attr("class", "question");
+			question.text(quiz[i]["question"]);
+			questionContainer.append(question);
+			var answers = $("<div>")
+			questionContainer.append(answers);
+			for(letter in quiz[i]["answers"]) {
+				var label = $("<label>");
+				label.attr("class", "answer");
+				label.html(quiz[i]["answers"][letter])
+				answers.append(label);
+			}
+			var radioGroupName = "question" + i;
+			var radioButtons = $('input[name="' + radioGroupName + '"]');
+			var answered = false;
+			for(var j = 0; j < radioButtons.length; j++) {
+				if(radioButtons[j].checked === true) {
+					answered = true;
+					if(radioButtons[j].value === quiz[i]["correctAnswer"]) {
+						correctCount++;
+					}
+					else {
+						incorrectCount++;
+					}
+				}
+			}
+			if(!answered) {
+				unansweredCount++;
+			}
+		}
+		console.log("Unanswered Count " + unansweredCount);
+		console.log("Correct Count " + correctCount);
+		console.log("Incorrect Count " + incorrectCount);
 	}
 	function seeResultsPage() {
 		console.log("building results page!");
 		//Hide quiz questions by toggling active and inactive css classes.
+		buildResultsPage();
 		$("#quiz-body").removeClass("active");
 		$("#quiz-body").addClass("inactive");
 		$("#start-body").removeClass("active");
 		$("#start-body").addClass("inactive");
-		$("#results").removeClass("inactive");
-		$("#results").addClass("active");
-		buildResultsPage();
+		$("#quiz-results").removeClass("inactive");
+		$("#quiz-results").addClass("active");
 	}
-	$("#startQuiz").on("click", function() {
-		//Hide start screen by toggling active and inactive classes on div that holds start page.
-		$("#start-body").addClass("inactive");
-		//show quiz questions by toggling active and inactive classes on div that holds quiz.
-		$("#quiz-body").removeClass("inactive");
-		$("#quiz-body").addClass("active");
-		buildQuiz()
-	});
+	$("#startQuiz").on("click", buildQuiz);
+	$("#seeResults").on("click", seeResultsPage);
 });
