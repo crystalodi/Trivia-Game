@@ -95,19 +95,18 @@ $(document).ready(function() {
 			}
 		}
 		//Add a submit button;
+		var inputButton = $("<input>");
+		inputButton.attr("id", "seeResults");
+		inputButton.attr("type", "button");
+		inputButton.attr("value", "See Results");
+		$("#quiz-body").append(inputButton);
+		$("#seeResults").on("click", seeResultsPage);
+	
 	}
 	function buildResultsPage() {
 
 	}
-	$("#startQuiz").on("click", function() {
-		//Hide start screen by toggling active and inactive classes on div that holds start page.
-		$("#start-body").addClass("inactive");
-		//show quiz questions by toggling active and inactive classes on div that holds quiz.
-		$("#quiz-body").removeClass("inactive");
-		$("#quiz-body").addClass("active");
-		buildQuiz()
-	});
-	$("#seeResults").on("click", function() {
+	function seeResultsPage() {
 		console.log("building results page!");
 		//Hide quiz questions by toggling active and inactive css classes.
 		$("#quiz-body").removeClass("active");
@@ -116,7 +115,14 @@ $(document).ready(function() {
 		$("#start-body").addClass("inactive");
 		$("#results").removeClass("inactive");
 		$("#results").addClass("active");
-		
-		//show results page.
+		buildResultsPage();
+	}
+	$("#startQuiz").on("click", function() {
+		//Hide start screen by toggling active and inactive classes on div that holds start page.
+		$("#start-body").addClass("inactive");
+		//show quiz questions by toggling active and inactive classes on div that holds quiz.
+		$("#quiz-body").removeClass("inactive");
+		$("#quiz-body").addClass("active");
+		buildQuiz()
 	});
 });
