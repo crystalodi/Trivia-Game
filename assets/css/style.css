@@ -5,44 +5,21 @@ body {
 	margin:0;
 	padding:0;
 	line-height: 1.5;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+}
+.button {
+	background-color:red;
+	color:white;
 }
 .container {
 	width:90%;
 	height:400px;
 	margin:0 auto;
 }
-.start,
-.quiz,
-.results {
-	float:left;
-	width:100%;
-	margin:0 auto;
-}
-.quiz,
-.results {
-	height:100%;
-	overflow-y:auto;
-}
-#startQuiz {
-	display:inherit;
-}
-.start {
-	text-align:center;
-}
 .inactive {
 	display:none;
 }
 .active {
 	display:inline-block;
-}
-.question-container {
-	float:left;
-	width:100%;
-	margin-bottom: 1%;
-	border:2px solid red;
-}
-.question,
-.answer {
-	float:left;
-	width:100%;
 }

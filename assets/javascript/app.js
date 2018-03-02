@@ -98,69 +98,53 @@ $(document).ready(function() {
 	var unansweredCount = 0;
 	//variables to keep track of what question user is on and how each question was answered
 	var quizIndex = 0;
-	var answerIndex = new Array(quiz.length);
-	function buildQuiz() {
+	var answerArray = new Array(quiz.length);
+	function showQuestion() {
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
 		$("#start-body").addClass("inactive");
 		//show quiz questions by toggling active and inactive classes on div that holds quiz.
 		$("#quiz-body").removeClass("inactive");
 		$("#quiz-body").addClass("active");
-		var quizForm = $("#quiz-form");
-		for(var i = quiz.length-1; i >= 0; i--) {
-			//Create a new container to hold quiz question and radio buttons
-			var questionContainer = $("<div>");
-			questionContainer.attr("class", "question-container")
-			quizForm.prepend(questionContainer);
-			//Create a div to hold question.
-			var question = $("<div>");
-			question.attr("class", "question");
-			question.text(quiz[i]["question"]);
-			//Add it to quiz form.
-			questionContainer.append(question);
-			//Loop through all of the answer choices and create a label with answer choice and a radio button
-			var answers = $("<div>")
-			questionContainer.append(answers);
-			for(letter in quiz[i]["answers"]) {
-				var label = $("<label>");
-				label.attr("class", "answer");
-				var inputGroupName = "question" + i;
-				label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '" data-index="' + i + '">' + quiz[i]["answers"][letter] + '</input>')
-				answers.append(label);
-			}
+		$("#answerChoices").empty();
+		//Populate Question
+		$("#currentQuestion").html(quiz[quizIndex]["question"]);
+		for(letter in quiz[quizIndex]["answers"]) {
+			var label = $("<label>");
+			var inputGroupName = "question" + quizIndex;
+			label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '" data-index="' + quizIndex + '">' + quiz[quizIndex]["answers"][letter] + '</input>')
+			$("#answerChoices").append(label);
+		}
+		if(quizIndex === 0) {
+			$("input:radio").on("click", selectAnswer);
 		}
 	}
-	function buildResultsPage() {
+	function nextQuestion() {
+		quizIndex++;
+		showQuestion();
+	}
+	function selectAnswer() {
+		answerArray[quizIndex] = $(this).val();
+		showAnswer();
+	}
+	function showAnswer() {
+		
+	}
+	function showResultsPage() {
+		//Hide quiz questions by toggling active and inactive css classes.
 		for(var i = 0; i < quiz.length; i++) {
-			var radioGroupName = "question" + i;
-			var radioButtons = $('input[name="' + radioGroupName + '"]');
-			var answered = false;
-			for(var j = 0; j < radioButtons.length; j++) {
-				if(radioButtons[j].checked === true) {
-					answered = true;
-					if(radioButtons[j].value === quiz[i]["correctAnswer"]) {
-						correctCount++;
-					}
-					else {
-						incorrectCount++;
-					}
-				}
-			}
-			if(!answered) {
+			if(!answerArray[i]) {
 				unansweredCount++;
+			}
+			else if(quiz[i]["correctAnswer"] === answerArray[i]) {
+				correctCount++;
+			}
+			else {
+				incorrectCount++
 			}
 		}
 		$("#num-incorrect").html(incorrectCount);
 		$("#num-correct").html(correctCount);
 		$("#num-unanswered").html(unansweredCount);
-
-		console.log("Unanswered Count " + unansweredCount);
-		console.log("Correct Count " + correctCount);
-		console.log("Incorrect Count " + incorrectCount);
-	}
-	function seeResultsPage() {
-		console.log("building results page!");
-		//Hide quiz questions by toggling active and inactive css classes.
-		buildResultsPage();
 		$("#quiz-body").removeClass("active");
 		$("#quiz-body").addClass("inactive");
 		$("#start-body").removeClass("active");
@@ -168,6 +152,6 @@ $(document).ready(function() {
 		$("#quiz-results").removeClass("inactive");
 		$("#quiz-results").addClass("active");
 	}
-	$("#startQuiz").on("click", buildQuiz);
-	$("#seeResults").on("click", seeResultsPage);
+	$("#startButton").on("click", showQuestion);
+	$("#seeResults").on("click", showResultsPage);
 });

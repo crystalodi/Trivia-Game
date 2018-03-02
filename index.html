@@ -10,12 +10,16 @@
 		<body>
 			<div class="container">
 				<div class="start" id="start-body">
-					<button type="button" id="startQuiz">Start Quiz</button>
+					<button class="button" id="startButton">Start Quiz</button>
 				</div>
 				<div class="quiz inactive" id="quiz-body">
-					<form id="quiz-form">
-						<input type="button" id="seeResults" value="See Results!"></input>
-					</form>
+					<div class="question-container" id="questionContainer">
+						<div class="question" id="currentQuestion"></div>
+						<div class="answer-choices" id="answerChoices"></div>
+					</div>
+					<div class="correct-answer-container" id="correctAnswerContainer">
+					
+					</div>
 				</div>
 				<div class="results inactive" id="quiz-results">
 					<div class="stats" id="game-stats">
