@@ -1,8 +1,4 @@
 $(document).ready(function() {
-	//Variables to keep track of questions user got right, wrong, or didn't answer.
-	var incorrectCount = 0;
-	var correctCount = 0;
-	var unansweredCount = 0;
 	//array of objects that contains quiz questions and answers.
 	var quiz = [
 		{
@@ -96,6 +92,13 @@ $(document).ready(function() {
 			correctAnswer: "a"
 		}
 	];
+	//variables to keep track of how many things you didn't answer, got wrong, or got correct
+	var incorrectCount = 0;
+	var correctCount = 0;
+	var unansweredCount = 0;
+	//variables to keep track of what question user is on and how each question was answered
+	var quizIndex = 0;
+	var answerIndex = new Array(quiz.length);
 	function buildQuiz() {
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
 		$("#start-body").addClass("inactive");
@@ -127,24 +130,7 @@ $(document).ready(function() {
 		}
 	}
 	function buildResultsPage() {
-		var resultsPage = $("#quiz-results");
 		for(var i = 0; i < quiz.length; i++) {
-			var questionContainer = $("<div>");
-			questionContainer.attr("class", "question-container")
-			resultsPage.append(questionContainer)
-			//Create a div to hold question.
-			var question = $("<div>");
-			question.attr("class", "question");
-			question.text(quiz[i]["question"]);
-			questionContainer.append(question);
-			var answers = $("<div>")
-			questionContainer.append(answers);
-			for(letter in quiz[i]["answers"]) {
-				var label = $("<label>");
-				label.attr("class", "answer");
-				label.html(quiz[i]["answers"][letter])
-				answers.append(label);
-			}
 			var radioGroupName = "question" + i;
 			var radioButtons = $('input[name="' + radioGroupName + '"]');
 			var answered = false;
@@ -163,6 +149,10 @@ $(document).ready(function() {
 				unansweredCount++;
 			}
 		}
+		$("#num-incorrect").html(incorrectCount);
+		$("#num-correct").html(correctCount);
+		$("#num-unanswered").html(unansweredCount);
+
 		console.log("Unanswered Count " + unansweredCount);
 		console.log("Correct Count " + correctCount);
 		console.log("Incorrect Count " + incorrectCount);
