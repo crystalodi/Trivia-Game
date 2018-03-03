@@ -119,6 +119,9 @@ $(document).ready(function() {
 	//variables to keep track of what question user is on and how each question was answered
 	var quizIndex = 0;
 	var answerArray = new Array(quiz.length);
+	//Variables for timer
+	var timeLimit;
+	var intervalID;
 	function showQuestion() {
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
 		$("#correctAnswerContainer").removeClass("active");
@@ -130,15 +133,15 @@ $(document).ready(function() {
 		$("#answerChoices").empty();
 		//Populate Question
 		$("#currentQuestion").html(quiz[quizIndex]["question"]);
+		//populate label and radio button;
 		for(letter in quiz[quizIndex]["answers"]) {
 			var label = $("<label>");
 			var inputGroupName = "question" + quizIndex;
 			label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '" data-index="' + quizIndex + '">' + quiz[quizIndex]["answers"][letter] + '</input>')
 			$("#answerChoices").append(label);
 		}
-		if(quizIndex === 0) {
-			$("input:radio").on("click", selectAnswer);
-		}
+		timeLimit = 30;
+		intervalId = setInterval(decrementTimer, 1000);
 	}
 	function nextQuestion() {
 		quizIndex++;
@@ -150,6 +153,8 @@ $(document).ready(function() {
 	}
 	function selectAnswer() {
 		answerArray[quizIndex] = $(this).val();
+		console.log(answerArray);
+		stopTimer();
 		showAnswer();
 	}
 	function showAnswer() {
@@ -200,6 +205,19 @@ $(document).ready(function() {
 		quizIndex = 0;
 		showQuestion();
 	}
+	function decrementTimer() {
+		timeLimit--;
+		console.log("There are " + timeLimit + " second(s) left");
+		if(timeLimit === 0) {
+			stopTimer()
+			showAnswer();
+		}
+	}
+	function stopTimer() {
+		clearInterval(intervalId);
+	}
 	$("#startButton").on("click", showQuestion);
 	$("#seeResults").on("click", showResultsPage);
+	//add onclick event for radio button choices
+	$(document).on("click", "input:radio", selectAnswer);
 });
