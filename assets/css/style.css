@@ -8,14 +8,25 @@ body {
 	font-family:Arial, sans-serif;
 	font-size:16px;
 }
-.button {
-	background-color:red;
-	color:white;
-}
 .container {
 	width:90%;
 	height:400px;
 	margin:0 auto;
+}
+.start,
+.quiz,
+.answer,
+.results {
+	width:100%;
+	text-align:center;
+}
+label {
+	float:left;
+	width:100%;
+}
+.button {
+	background-color:red;
+	color:white;
 }
 .inactive {
 	display:none;
