@@ -35,7 +35,7 @@ $(document).ready(function() {
 				d: "Unlucky Strikes"
 			},
 			correctAnswer: "c",
-			mediaContent: '<img src="../img/manitoba.png"/>',
+			mediaContent: '<img src="./assets/img/manitoba.png"/>',
 			explanation: "Dale Gribble smokes Manitoba brand cigarettes."
 		},
 		{
@@ -124,12 +124,12 @@ $(document).ready(function() {
 	var intervalID;
 	function showQuestion() {
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
-		$("#correctAnswerContainer").removeClass("active");
-		$("#correctAnswerContainer").addClass("inactive");
-		$("#start-body").addClass("inactive");
+		$("#answer").removeClass("active");
+		$("#answer").addClass("inactive");
+		$("#start").addClass("inactive");
 		//show quiz questions by toggling active and inactive classes on div that holds quiz.
-		$("#quiz-body").removeClass("inactive");
-		$("#quiz-body").addClass("active");
+		$("#quiz").removeClass("inactive");
+		$("#quiz").addClass("active");
 		$("#answerChoices").empty();
 		//Populate Question
 		$("#currentQuestion").html(quiz[quizIndex]["question"]);
@@ -140,11 +140,11 @@ $(document).ready(function() {
 			label.html('<input type="radio" name="' + inputGroupName + '" value="' + letter + '" data-index="' + quizIndex + '">' + quiz[quizIndex]["answers"][letter] + '</input>')
 			$("#answerChoices").append(label);
 		}
-		timeLimit = 30;
-		intervalId = setInterval(decrementTimer, 1000);
+		startTimer();
 	}
 	function nextQuestion() {
 		quizIndex++;
+		$("#media").empty();
 		if(quizIndex === quiz.length) {
 			showResultsPage();
 		}else {
@@ -159,13 +159,11 @@ $(document).ready(function() {
 	}
 	function showAnswer() {
 		//Hide Question and Answer choices
-		$("#questionContainer").removeClass("active");
-		$("#questionContainer").addClass("inactive");
+		$("#quiz").removeClass("active");
+		$("#quiz").addClass("inactive");
 		//Show Container that holds correct answer and media.
-		$("#correctAnswerContainer").removeClass("inactive");
-		$("#correctAnswerContainer").addClass("active");
-		$("#media").empty();
-		$("#answerExplanation").empty();
+		$("#answer").removeClass("inactive");
+		$("#answer").addClass("active");
 		$("#media").html(quiz[quizIndex]["mediaContent"]);
 		$("#answerExplanation").html(quiz[quizIndex]["explanation"]);
 		
@@ -189,12 +187,12 @@ $(document).ready(function() {
 		$("#num-incorrect").html(incorrectCount);
 		$("#num-correct").html(correctCount);
 		$("#num-unanswered").html(unansweredCount);
-		$("#quiz-body").removeClass("active");
-		$("#quiz-body").addClass("inactive");
-		$("#start-body").removeClass("active");
-		$("#start-body").addClass("inactive");
-		$("#quiz-results").removeClass("inactive");
-		$("#quiz-results").addClass("active");
+		$("#quiz").removeClass("active");
+		$("#quiz").addClass("inactive");
+		$("#answer").removeClass("active");
+		$("#answer").addClass("inactive");
+		$("#results").removeClass("inactive");
+		$("#results").addClass("active");
 	}
 	function retryQuiz() {
 		answerArray = new Array(quiz.length);
@@ -203,11 +201,13 @@ $(document).ready(function() {
 		unansweredCount = 0;
 		//variables to keep track of what question user is on and how each question was answered
 		quizIndex = 0;
+		$("#results").removeClass("active");
+		$("#results").addClass("inactive");
 		showQuestion();
 	}
 	function decrementTimer() {
 		timeLimit--;
-		console.log("There are " + timeLimit + " second(s) left");
+		$("#seconds-left").html(timeLimit)
 		if(timeLimit === 0) {
 			stopTimer()
 			showAnswer();
@@ -216,8 +216,15 @@ $(document).ready(function() {
 	function stopTimer() {
 		clearInterval(intervalId);
 	}
+	function startTimer() {
+		timeLimit = 30;
+		$("#seconds-left").html(timeLimit);
+		intervalId = setInterval(decrementTimer, 1000);
+	}
 	$("#startButton").on("click", showQuestion);
 	$("#seeResults").on("click", showResultsPage);
 	//add onclick event for radio button choices
 	$(document).on("click", "input:radio", selectAnswer);
+	$("#nextQuestion").on("click", nextQuestion);
+	$("#retryQuiz").on("click", retryQuiz);
 });
