@@ -9,25 +9,30 @@
 		</head>
 		<body>
 			<div class="container">
-				<div class="start" id="start-body">
+				<div class="start" id="start">
 					<button class="button" id="startButton">Start Quiz</button>
 				</div>
-				<div class="quiz inactive" id="quiz-body">
-					<div class="question-container" id="questionContainer">
-						<div class="question" id="currentQuestion"></div>
-						<div class="answer-choices" id="answerChoices"></div>
-					</div>
-					<div class="correct-answer-container" id="correctAnswerContainer">
-						<div class="answer-explanation" id="answerExplanation"></div>
-						<div class="media-container" id="media"></div>
+				<div class="quiz inactive" id="quiz">
+					<h1>
+						<span id="seconds-left"></span>
+					</h1>
+					<div id="questionContainer">
+						<div id="currentQuestion"></div>
+						<div id="answerChoices"></div>
 					</div>
 				</div>
-				<div class="results inactive" id="quiz-results">
-					<div class="stats" id="game-stats">
+				<div id="answer" class="answer inactive">
+					<div id="answerExplanation"></div>
+					<div id="media"></div>
+					<button class="button" id="nextQuestion">Next Question</button>
+				</div>
+				<div class="results inactive" id="results">
+					<div class="stats">
 						<h1>Number Incorrect: <span id="num-incorrect"></span></h1>
 						<h1>Number Correct: <span id="num-correct"></span></h1>
 						<h1>Number Unanswered: <span id="num-unanswered"></span></h1>
 					</div>
+					<button class="button" id="retryQuiz">Try Again</button>
 				</div>
 			</div>
 			<script src="./assets/javascript/app.js"></script>
