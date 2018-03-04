@@ -10,7 +10,7 @@ $(document).ready(function() {
 				d: "A lot"
 			},
 			correctAnswer: "a",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/fhGX5izia1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/fhGX5izia1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Cotton Hill killed Fiddy Men."
 		},
 		{
@@ -22,7 +22,7 @@ $(document).ready(function() {
 				d: "Propane and Propane accessories"
 			},
 			correctAnswer: "d",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/rM02vHtftd0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/rM02vHtftd0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Hank Hill sells propane and propane accessories."
 
 		},
@@ -47,7 +47,7 @@ $(document).ready(function() {
 				d: "Spanish"
 			},
 			correctAnswer: "d",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/7cmWlZXSH44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/7cmWlZXSH44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Peggy speaks Spanish very poorly."
 		},
 		{
@@ -59,7 +59,7 @@ $(document).ready(function() {
 				d: "Dale"
 			},
 			correctAnswer: "a",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/T8gmEWG7U3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/T8gmEWG7U3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Joseph Gribble's dad is John Redcorn."
 		},
 		{
@@ -71,7 +71,7 @@ $(document).ready(function() {
 				d: "Dale"
 			},
 			correctAnswer: "c",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/p0qNmd9kASw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/p0qNmd9kASw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Bill has a mental break in the Christmas episode called <em>Pretty, Pretty Dresses</em>"
 		},
 		{
@@ -83,7 +83,7 @@ $(document).ready(function() {
 				d: "Ankle"
 			},
 			correctAnswer: "b",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/VMgDbUAZfCQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/VMgDbUAZfCQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Hank threatens to kick somebody's ass when he is angry."
 
 		},
@@ -96,7 +96,7 @@ $(document).ready(function() {
 				d: "Stan Lee"
 			},
 			correctAnswer: "a",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/S580EX1nnYU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/S580EX1nnYU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Dale Gribble always uses the fake name of Rusty Shackleford."
 		},
 		{
@@ -108,7 +108,7 @@ $(document).ready(function() {
 				d: "Target"
 			},
 			correctAnswer: "a",
-			mediaContent: '<iframe width="560" height="315" src="https://www.youtube.com/embed/c7OIhhAyD7g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/c7OIhhAyD7g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "The name of the grocery superstore that everybody in town shops at is called the Megalomart."
 		}
 	];
@@ -166,7 +166,12 @@ $(document).ready(function() {
 		$("#answer").addClass("active");
 		$("#media").html(quiz[quizIndex]["mediaContent"]);
 		$("#answerExplanation").html(quiz[quizIndex]["explanation"]);
-		
+		if(quizIndex === quiz.length - 1) {
+			$("#nextQuestion").text("See Results");
+		}
+		else {
+			$("#nextQuestion").text("Next Question");
+		}	
 	}
 	function showResultsPage() {
 		//Compare answers stored in answer array with the correct answer in the quiz array
