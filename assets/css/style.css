@@ -35,6 +35,9 @@ label {
 .button {
 	background-color:red;
 	color:white;
+	border:none;
+	padding:15px 32px;
+	margin-top:2%;
 }
 .inactive {
 	display:none;
