@@ -170,7 +170,14 @@ $(document).ready(function() {
 		$("#answer").removeClass("inactive");
 		$("#answer").addClass("active");
 		$("#media").html(quiz[quizIndex]["mediaContent"]);
-		$("#answerExplanation").html(quiz[quizIndex]["explanation"]);
+		var correctIncorrect;
+		if(answerArray[quizIndex] === quiz[quizIndex]["correctAnswer"]) {
+			correctIncorrect = "<span class='correct'>Correct </span>"
+		}
+		else {
+			correctIncorrect = "<span class='incorrect'>Incorrect </span>"
+		}
+		$("#answerExplanation").html(correctIncorrect + quiz[quizIndex]["explanation"]);
 		if(quizIndex === quiz.length - 1) {
 			$("#nextQuestion").text("See Results");
 		}
@@ -217,7 +224,7 @@ $(document).ready(function() {
 	}
 	function decrementTimer() {
 		timeLimit--;
-		$("#seconds-left").html(timeLimit)
+		$("#seconds-left").html(timeLimit + " second(s) left")
 		if(timeLimit === 0) {
 			stopTimer()
 			showAnswer();
@@ -228,7 +235,7 @@ $(document).ready(function() {
 	}
 	function startTimer() {
 		timeLimit = 30;
-		$("#seconds-left").html(timeLimit);
+		$("#seconds-left").html(timeLimit + " second(s) left");
 		intervalId = setInterval(decrementTimer, 1000);
 	}
 	$("#startButton").on("click", showQuestion);

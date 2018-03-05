@@ -45,6 +45,12 @@ label {
 .active {
 	display:inline-block;
 }
+.correct {
+	color:green;
+}
+.incorrect {
+	color:red;
+}
 div#media {
 	max-height:350px;
 	height:350px;
