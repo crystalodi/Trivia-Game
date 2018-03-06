@@ -35,7 +35,7 @@ $(document).ready(function() {
 				d: "Unlucky Strikes"
 			},
 			correctAnswer: "c",
-			mediaContent: '<img src="./assets/img/manitoba.png"/>',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/aGT5K_3Dztk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Dale Gribble smokes Manitoba brand cigarettes."
 		},
 		{

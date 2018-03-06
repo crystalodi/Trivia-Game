@@ -8,14 +8,16 @@
 			<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		</head>
 		<body>
+			<header></header>
 			<div class="container">
 				<div class="start" id="start">
-					<button class="button" id="startButton">Start Quiz</button>
+					<div class="img-container">
+						<img src="./assets/img/start.jpg"/>
+					</div>
+					<div class="button-container"><button class="button" id="startButton">Start Quiz</button></div>
 				</div>
 				<div class="quiz inactive" id="quiz">
-					<h1>
-						<span id="seconds-left"></span>
-					</h1>
+					<h1 id="seconds-left"></h1>
 					<div id="questionContainer">
 						<div id="currentQuestion"></div>
 						<div id="answerChoices"></div>
@@ -24,15 +26,22 @@
 				<div id="answer" class="answer inactive">
 					<div id="answerExplanation"></div>
 					<div id="media"></div>
-					<button class="button" id="nextQuestion">Next Question</button>
+					<div class="button-container">
+						<button class="button" id="nextQuestion">Next Question</button>
+					</div>
 				</div>
 				<div class="results inactive" id="results">
+					<div class="img-container">
+						<img src="./assets/img/last_image.jpg"/>
+					</div>
 					<div class="stats">
 						<h1>Number Incorrect: <span id="num-incorrect"></span></h1>
 						<h1>Number Correct: <span id="num-correct"></span></h1>
 						<h1>Number Unanswered: <span id="num-unanswered"></span></h1>
 					</div>
-					<button class="button" id="retryQuiz">Try Again</button>
+					<div class="button-container">
+						<button class="button" id="retryQuiz">Try Again</button>
+					</div>
 				</div>
 			</div>
 			<script src="./assets/javascript/app.js"></script>

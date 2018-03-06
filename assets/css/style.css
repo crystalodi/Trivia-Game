@@ -16,6 +16,14 @@ iframe {
 	height:100%;
 	width:100%;
 }
+header {
+	width:100%;
+	height:100px;
+	background-image: url('../img/King-of-the-Hill-logo.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat:no-repeat;
+}
 .container {
 	width:50%;
 	height:400px;
@@ -26,17 +34,17 @@ iframe {
 .answer,
 .results {
 	width:100%;
-	text-align:center;
+	margin:0 auto;
 }
 label {
 	float:left;
 	width:100%;
 }
 .button {
-	background-color:red;
+	background-color:#de0029;
 	color:white;
 	border:none;
-	padding:15px 32px;
+	padding:2% 4%;
 	margin-top:2%;
 }
 .inactive {
@@ -46,12 +54,28 @@ label {
 	display:inline-block;
 }
 .correct {
-	color:green;
+	color:#0fb800;
 }
 .incorrect {
-	color:red;
+	color:#de0029;
+}
+.button-container {
+	text-align:center;
+}
+.img-container {
+	text-align:center;
+}
+.stats {
+	width:50%;
+	margin:0 auto;
 }
 div#media {
 	max-height:350px;
 	height:350px;
+}
+#seconds-left {
+	float:right;
+}
+#currentQuestion {
+	clear:both;
 }
