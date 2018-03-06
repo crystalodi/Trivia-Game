@@ -4,26 +4,26 @@ $(document).ready(function() {
 		{
 			question: "How many men did Cotton Hill kill during Word War II?",
 			answers: {
-				a: "Fiddy",
+				a: "Fitty",
 				b: "Hundred",
 				c: "Ten",
 				d: "A lot"
 			},
 			correctAnswer: "a",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/fhGX5izia1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Cotton Hill killed Fiddy Men."
+			explanation: "Cotton Hill killed Fitty Men during his time serving the country in WW2."
 		},
 		{
 			question: "What does Hank Hill sell for a living?",
 			answers: {
-				a: "Air Conditioners",
-				b: "Designer Handbags",
-				c: "Plumbing Supplies",
+				a: "Air Conditioners and Air Conditioner Accessories",
+				b: "Designer Handbags and Designer Handbag Accessories",
+				c: "Plumbing Supplies and Pluming Supply Accessories",
 				d: "Propane and Propane accessories"
 			},
 			correctAnswer: "d",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/rM02vHtftd0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Hank Hill sells propane and propane accessories."
+			explanation: "Hank Hill sells Propane and Propane accessories."
 
 		},
 		{
@@ -36,7 +36,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "c",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/aGT5K_3Dztk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Dale Gribble smokes Manitoba brand cigarettes."
+			explanation: "Dale Gribble smokes Manitoba brand cigarettes. Manitoba is the official brand of cigarettes for the Royal Mounted Canadian Police."
 		},
 		{
 			question: "What language does Peggy speak very poorly?",
@@ -48,7 +48,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "d",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/7cmWlZXSH44" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Peggy speaks Spanish very poorly."
+			explanation: "Peggy speaks Spanish very poorly, but her narcissism prevents her from accepting the fact that she's not very good at it."
 		},
 		{
 			question: "Who is Joseph Gribble's dad?",
@@ -60,7 +60,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "a",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/T8gmEWG7U3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Joseph Gribble's dad is John Redcorn."
+			explanation: "Joseph Gribble's dad is John Redcorn. He is the product of 13 year long affair between John Redcorn and Dale's wife, Nancy Hicks-Gribble."
 		},
 		{
 			question: "In the episode Pretty Pretty Dresses, which character has a mental breakdown?",
@@ -72,7 +72,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "c",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/p0qNmd9kASw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Bill has a mental break in the Christmas episode called <em>Pretty, Pretty Dresses</em>"
+			explanation: "Bill has a mental breakdown in the Christmas episode called Pretty, Pretty Dresses and dresses up as his ex-wife Lenore. Christmas is the time his ex-wife Lenore left him."
 		},
 		{
 			question: "What body part does Hank threaten to kick when he is angry?",
@@ -84,7 +84,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "b",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/VMgDbUAZfCQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Hank threatens to kick somebody's ass when he is angry."
+			explanation: "Hank threatens to kick somebody's or something's ass when he is angry."
 
 		},
 		{
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			},
 			correctAnswer: "a",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/S580EX1nnYU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "Dale Gribble always uses the fake name of Rusty Shackleford."
+			explanation: "Dale Gribble always uses the alias of Rusty Shackleford."
 		},
 		{
 			question: "What is the name of the grocery superstore that everybody in town shops at?",
@@ -109,7 +109,43 @@ $(document).ready(function() {
 			},
 			correctAnswer: "a",
 			mediaContent: '<iframe src="https://www.youtube.com/embed/c7OIhhAyD7g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-			explanation: "The name of the grocery superstore that everybody in town shops at is called the Megalomart."
+			explanation: "The name of the grocery superstore that everybody in town shops at is called the Megalomart. It is based off of the store Walmart."
+		},
+		{
+			question: "What is the name of Luanne's deceased boyfriend?",
+			answers: {
+				a: "Josh",
+				b: "Sherman",
+				c: "Rad",
+				d: "Buckley"
+			},
+			correctAnswer: "d",
+			mediaContent: '',
+			explanation: "The name of Luanne's deceased boyfriend is Buckley. He died when the Megalomart blew up in the episode Death of a Propane Salesman."
+		},
+		{
+			question: "What country are the Souphanousinphones from?",
+			answers: {
+				a: "Cambodia",
+				b: "Vietnam",
+				c: "Laos",
+				d: "Thailand"
+			},
+			correctAnswer: "c",
+			mediaContent: '',
+			explanation: "The Souphanousinphones immigrated to America from Laos. Before moving to Arlen, they lived in Anaheim, California."
+		},
+		{
+			question: "In the episode Bobby Goes Nuts, Bobby wins all of his fights by kicking his opponents where?",
+			answers: {
+				a: "Behind",
+				b: "Face",
+				c: "Stomach",
+				d: "Groin"
+			},
+			correctAnswer: "d",
+			mediaContent: '',
+			explanation: "Bobby wins all of his fights by kicking his opponents in the groin, a move he learned in a Women's self-defense class held at the local YMCA."
 		}
 	];
 	//variables to keep track of how many things you didn't answer, got wrong, or got correct
