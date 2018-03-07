@@ -120,7 +120,7 @@ $(document).ready(function() {
 				d: "Buckley"
 			},
 			correctAnswer: "d",
-			mediaContent: '',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/33CkjH4-arY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "The name of Luanne's deceased boyfriend is Buckley. He died when the Megalomart blew up in the episode Death of a Propane Salesman."
 		},
 		{
@@ -132,7 +132,7 @@ $(document).ready(function() {
 				d: "Thailand"
 			},
 			correctAnswer: "c",
-			mediaContent: '',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/d_CaZ4EAexQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "The Souphanousinphones immigrated to America from Laos. Before moving to Arlen, they lived in Anaheim, California."
 		},
 		{
@@ -144,7 +144,7 @@ $(document).ready(function() {
 				d: "Groin"
 			},
 			correctAnswer: "d",
-			mediaContent: '',
+			mediaContent: '<iframe src="https://www.youtube.com/embed/1u4oXXL1a5A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
 			explanation: "Bobby wins all of his fights by kicking his opponents in the groin, a move he learned in a Women's self-defense class held at the local YMCA."
 		}
 	];
