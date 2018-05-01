@@ -1,4 +1,16 @@
-# TriviaGame
-King of the hill trivia game. This is an app built with jQuery, javascript, HTML, and CSS
+# Trivia Game
 
-The quiz consists of 9 questions. A user is alloted 30 seconds for each question. After the timer runs down to zero or after the user selects an answer, a page showing the correct answer and a youtube video clip will appear.
+## About
+This trivia game will test a user's knowledge of the popular TV show King of the Hill. This quiz consists of 12 questions. Users are given 30 seconds to answer each question.
+
+## How to use
+To Start the quiz, press the start button on the main page located [here](http://crystalodi.github.io/Trivia-Game) 
+
+## Technologies Used
+* JQuery
+* HTML5
+* CSS
+
+
+
+

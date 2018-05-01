@@ -158,12 +158,12 @@ $(document).ready(function() {
 	//Variables for timer
 	var timeLimit;
 	var intervalID;
-	var audio = new Audio("./assets/sounds/koth_theme.mp3")
-	audio.play();
+	// var audio = new Audio("./assets/sounds/koth_theme.mp3")
+	// audio.play();
 	function showQuestion() {
-		if(!audio.paused) {
-			audio.pause();
-		}
+		// if(!audio.paused) {
+		// 	audio.pause();
+		// }
 		//Hide start screen by toggling active and inactive classes on div that holds start page.
 		$("#answer").removeClass("active");
 		$("#answer").addClass("inactive");

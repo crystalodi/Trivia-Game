@@ -10,7 +10,7 @@ body {
 }
 img {
 	height: auto !important;
-	width:50%;
+	width:100%;
 }
 iframe {
 	height:100%;
